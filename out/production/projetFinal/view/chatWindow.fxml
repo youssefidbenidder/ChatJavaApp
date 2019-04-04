@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="610.0" prefWidth="930.0" stylesheets="../controler/PublicChat.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.ChatWindow">
+    <children>
+        <AnchorPane fx:id="rootPane" layoutX="130.0" prefHeight="610.0" prefWidth="785.0" stylesheets="../controler/PublicChat.css">
+            <children>
+                <AnchorPane fx:id="svgPane" layoutX="48.0" layoutY="30.0" prefHeight="580.0" prefWidth="754.0" stylesheets="@../controler/PublicChat.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                <AnchorPane fx:id="profile" layoutX="-1.0" layoutY="30.0" prefHeight="580.0" prefWidth="619.0">
+                    <children>
+                        <AnchorPane fx:id="chatPane" layoutX="48.0" prefHeight="580.0" prefWidth="570.0" stylesheets="@../controler/PublicChat.css">
+                            <children>
+                                <TextArea fx:id="txtMsg" accessibleRole="PARENT" editable="false" layoutX="21.0" layoutY="507.0" prefHeight="33.0" prefWidth="491.0" promptText="Type your message" wrapText="true" />
+                                <ScrollPane fx:id="scrollPane" accessibleRole="PARENT" hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="453.0" prefWidth="539.0" vvalue="1.0">
+                                    <content>
+                                        <VBox fx:id="chatBox" alignment="TOP_RIGHT" prefHeight="451.0" prefWidth="535.0" stylesheets="@../controler/PublicChat.css" />
+                                    </content>
+                                </ScrollPane>
+                                <Button fx:id="btnSend" accessibleRole="PARENT" layoutX="527.0" layoutY="507.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="30.0" prefWidth="34.0" stylesheets="@../controler/PublicChat.css" />
+                                <Button fx:id="btnEmoji" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="479.0" layoutY="510.0" maxWidth="-Infinity" minHeight="19.0" minWidth="39.0" mnemonicParsing="false" onAction="#emojiAction" styleClass="btnEmoji" text="😊" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="detailPane1" layoutX="617.0" layoutY="30.0" prefHeight="580.0" prefWidth="185.0" stylesheets="@../controler/PublicChat.css">
+                    <children>
+                        <ScrollPane fx:id="clientListScroll" hbarPolicy="NEVER" prefHeight="539.0" prefWidth="184.0" vvalue="1.0">
+                            <content>
+                                <VBox fx:id="clientListBox" prefHeight="533.0" prefWidth="184.0">
+                                    <children>
+                                        <Label prefHeight="31.0" prefWidth="184.0" text="Online Users" textFill="WHITE">
+                                            <font>
+                                                <Font size="19.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets left="30.0" />
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+                <TextFlow fx:id="emojiList" layoutX="293.0" layoutY="445.0" prefHeight="91.0" prefWidth="260.0" visible="false">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😀" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😁" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😂" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😃" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😄" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😅" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😆" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😇" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😈" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😉" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😊" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😋" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😌" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😍" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😎" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😏" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😐" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😑" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😒" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😓" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😔" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😕" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😖" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😗" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😘" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😙" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😚" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😛" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😜" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😝" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😞" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😟" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😠" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😡" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😢" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😣" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😤" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😥" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😦" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😧" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😨" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😩" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😪" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😫" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😬" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😭" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😮" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😯" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😰" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😱" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😲" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😳" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😴" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😵" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😶" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😷" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😸" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😹" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😺" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😻" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😼" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😽" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😾" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="😿" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙀" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙁" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙂" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙃" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙄" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙅" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙆" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙇" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙈" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙉" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙊" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙋" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙌" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙍" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙎" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🙏" />
+                    </children>
+                </TextFlow>
+            </children>
+        </AnchorPane>
+        <Pane fx:id="anchor" layoutY="30.0" prefHeight="580.0" prefWidth="177.0" style="-fx-background-color: rgba(32, 29, 30,0.8);">
+            <children>
+                <FontAwesomeIcon fx:id="bars" iconName="BARS" layoutX="67.0" layoutY="69.0" size="3em" wrappingWidth="35.0" />
+                <JFXButton fx:id="profilebutton" alignment="TOP_RIGHT" layoutY="112.0" onAction="#createpage" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #68725d;" text="Profile">
+                    <graphic>
+                        <FontAwesomeIcon iconName="USER" />
+                    </graphic>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                    <padding>
+                        <Insets right="65.0" top="4.0" />
+                    </padding>
+                </JFXButton>
+                <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#createinvit" text="Button" />
+                <JFXButton fx:id="invitbutton" alignment="TOP_RIGHT" layoutY="152.0" onAction="#createpage1" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #68725d;" text="Add User">
+                    <graphic>
+                        <FontAwesomeIcon iconName="USERS" />
+                    </graphic>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                    <padding>
+                        <Insets right="38.0" top="4.0" />
+                    </padding>
+                </JFXButton>
+            </children>
+        </Pane>
+        <AnchorPane fx:id="titleBar" layoutX="-1.0" prefHeight="30.0" prefWidth="933.0" style="-fx-background-color: rgba(54,57,63,0.95);" stylesheets="@../controler/PublicChat.css">
+            <children>
+                <Button fx:id="btnClose" layoutX="903.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeAction" prefHeight="25.0" prefWidth="25.0" stylesheets="@../controler/PublicChat.css">
+                    <tooltip>
+                        <Tooltip height="20.0" text="Logout" width="15.0" wrapText="true" />
+                    </tooltip>
+                </Button>
+                <Label layoutX="14.0" layoutY="6.0" text="Say Hi Chat-App" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+        <Pane fx:id="pan1" layoutX="175.0" layoutY="30.0" prefHeight="580.0" prefWidth="570.0">
+            <children>
+                <AnchorPane fx:id="home" layoutX="-1.0" prefHeight="580.0" prefWidth="570.0" style="-fx-background-color: #2f3136;">
+                    <children>
+                        <Label layoutX="9.0" layoutY="-2.0" text="Profile" textFill="WHITE">
+                            <font>
+                                <Font name="System Italic" size="24.0" />
+                            </font>
+                        </Label>
+                        <VBox fx:id="vboxFriends" layoutX="11.0" layoutY="26.0" prefHeight="551.0" prefWidth="563.0" spacing="1.0">
+                            <children>
+                                <ImageView fx:id="imageprofile" fitHeight="109.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/aniss.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Separator prefWidth="200.0" />
+                                <GridPane prefHeight="170.0" prefWidth="524.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.0" minWidth="10.0" prefWidth="152.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="325.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="102.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="User Name :" textFill="#b9a8a8" />
+                                        <Label text="Email :" textFill="#c6b4b4" GridPane.rowIndex="1" />
+                                        <Label text="Nom :" textFill="#c3b2b2" GridPane.rowIndex="2" />
+                                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="8.0" />
+                                            </GridPane.margin>
+                                        </FontAwesomeIcon>
+                                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets left="9.0" />
+                                            </GridPane.margin>
+                                        </FontAwesomeIcon>
+                                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets left="9.0" />
+                                            </GridPane.margin>
+                                        </FontAwesomeIcon>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1">
+                                            <children>
+                                                <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="USER" />
+                                                <TextField id="user" prefHeight="30.0" prefWidth="189.0" promptText="Username" style="-fx-background-color: transparent;" stylesheets="@../text.css" HBox.hgrow="ALWAYS">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <children>
+                                                <FontAwesomeIcon id="message" glyphStyle="-fx-fill:#BEBFC1" iconName="ENVELOPE_ALT" size="1.2em" text="" wrappingWidth="10.0" />
+                                                <TextField prefHeight="30.0" prefWidth="189.0" promptText="Email" style="-fx-background-color: transparent;" stylesheets="@../text.css" HBox.hgrow="ALWAYS">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                        </HBox>
+                                        <Label text="Birthday :" textFill="#c3b2b2" GridPane.rowIndex="3" />
+                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <children>
+                                                <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="USER" />
+                                                <TextField fx:id="userTexte" prefHeight="30.0" prefWidth="189.0" promptText="Name" style="-fx-background-color: transparent;" stylesheets="@../text.css" HBox.hgrow="ALWAYS">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="29.0" prefWidth="280.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                            <children>
+                                                <Label text="gender" textFill="#a49c9c">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <JFXRadioButton fx:id="male" ellipsisString="" text="Male" textFill="#a49c9c" />
+                                                <JFXRadioButton fx:id="femal" text="Female" textFill="#a49c9c" textOverrun="CLIP" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Sex :" textFill="#c3b2b2" GridPane.rowIndex="4" />
+                                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                            <GridPane.margin>
+                                                <Insets left="10.0" />
+                                            </GridPane.margin>
+                                        </FontAwesomeIcon>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <children>
+                                                <JFXDatePicker fx:id="date" prefHeight="26.0" prefWidth="308.0" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </GridPane>
+                                <AnchorPane prefHeight="51.0" prefWidth="524.0">
+                                    <children>
+                                        <Label layoutX="29.0" layoutY="27.0" prefHeight="16.0" prefWidth="495.0" text="It's a good idea to use a strong password that you're not using elsewhere" textFill="#eee2e2">
+                                            <font>
+                                                <Font size="11.0" />
+                                            </font>
+                                        </Label>
+                                        <FontAwesomeIcon iconName="KEY" layoutX="4.0" layoutY="32.0" size="1.5em" />
+                                        <Label layoutX="38.0" layoutY="6.0" prefHeight="16.0" prefWidth="128.0" text="Change password" textFill="#000000f6">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <FontAwesomeIcon iconName="PENCIL" layoutX="475.0" layoutY="25.0" />
+                                        <JFXButton id="button" layoutX="492.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#hide" prefHeight="33.0" prefWidth="71.0" ripplerFill="WHITE" style="-fx-background-color: #565a60;" stylesheets="@../text.css" text="Change" textFill="WHITE" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="hidden" prefHeight="118.0" prefWidth="563.0">
+                                    <children>
+                                        <AnchorPane prefHeight="128.0" prefWidth="450.0" style="-fx-background-color: #2f3136;">
+                                            <children>
+                                                <GridPane layoutX="22.0" layoutY="-4.0" prefHeight="138.0" prefWidth="428.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="116.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="312.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label prefHeight="34.0" prefWidth="111.0" text="Current : " textFill="#b9a8a8">
+                                                            <padding>
+                                                                <Insets top="6.0" />
+                                                            </padding>
+                                                        </Label>
+                                                        <Label prefHeight="22.0" prefWidth="97.0" text="New :" textFill="#b9a8a8" GridPane.rowIndex="1">
+                                                            <padding>
+                                                                <Insets top="6.0" />
+                                                            </padding>
+                                                        </Label>
+                                                        <Label prefHeight="39.0" prefWidth="108.0" text="Re-type new :" textFill="#b9a8a8" GridPane.rowIndex="2">
+                                                            <padding>
+                                                                <Insets top="5.0" />
+                                                            </padding>
+                                                        </Label>
+                                                        <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="save changes" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                            <GridPane.margin>
+                                                                <Insets left="229.0" />
+                                                            </GridPane.margin>
+                                                            <font>
+                                                                <Font size="10.0" />
+                                                            </font>
+                                                        </Button>
+                                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1">
+                                                            <children>
+                                                                <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="LOCK" />
+                                                                <PasswordField id="password" fx:id="password" prefHeight="30.0" prefWidth="214.0" promptText="Current Password" style="-fx-background-color: transparent; -fx-text-fill: rgb(255, 255,255);" HBox.hgrow="ALWAYS">
+                                                                    <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                    </HBox.margin>
+                                                                    <font>
+                                                                        <Font size="14.0" />
+                                                                    </font>
+                                                                </PasswordField>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets left="10.0" />
+                                                            </padding>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                            <children>
+                                                                <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="LOCK" />
+                                                                <PasswordField prefHeight="30.0" prefWidth="214.0" promptText="New-Password" style="-fx-background-color: transparent; -fx-text-fill: rgb(255, 255,255);" HBox.hgrow="ALWAYS">
+                                                                    <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                    </HBox.margin>
+                                                                    <font>
+                                                                        <Font size="14.0" />
+                                                                    </font>
+                                                                </PasswordField>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets left="10.0" />
+                                                            </padding>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="252.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-color: #565a60;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                            <children>
+                                                                <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="LOCK" />
+                                                                <PasswordField prefHeight="30.0" prefWidth="214.0" promptText="Re-type newPassword" style="-fx-background-color: transparent; -fx-text-fill: rgb(255, 255,255);" HBox.hgrow="ALWAYS">
+                                                                    <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                    </HBox.margin>
+                                                                    <font>
+                                                                        <Font size="14.0" />
+                                                                    </font>
+                                                                </PasswordField>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets left="10.0" />
+                                                            </padding>
+                                                        </HBox>
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                        <Button fx:id="back" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="534.0" layoutY="5.0" mnemonicParsing="false" onAction="#back" prefHeight="18.0" prefWidth="34.0" style="-fx-background-color: rgb(201, 209, 221,0.6);" text="X" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Button>
+                        <TextField fx:id="erreur" layoutX="154.0" layoutY="505.0" prefHeight="28.0" prefWidth="277.0" style="-fx-background-color: rgba(0,0,0,0); -fx-alignment: center;">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                        <JFXButton id="button" layoutX="321.0" layoutY="537.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#valider" prefHeight="33.0" prefWidth="87.0" ripplerFill="WHITE" style="-fx-background-color: #565a60;" stylesheets="@../text.css" text="valide" textFill="WHITE">
+                            <font>
+                                <Font name="Microsoft Sans Serif" size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton id="button" fx:id="button" layoutX="191.0" layoutY="537.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="87.0" ripplerFill="WHITE" style="-fx-background-color: #565a60;" stylesheets="@../text.css" text="Cancel" textFill="WHITE">
+                            <font>
+                                <Font name="Microsoft Sans Serif" size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton id="button" layoutX="135.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#modifierImage" prefHeight="33.0" prefWidth="73.0" ripplerFill="WHITE" style="-fx-background-color: #565a60;" stylesheets="@../text.css" text="Change" textFill="WHITE" />
+                        <FontAwesomeIcon fill="#fffdfd" iconName="PENCIL" layoutX="216.0" layoutY="77.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </Pane>
+        <Pane fx:id="pan2" layoutX="174.0" layoutY="30.0" prefHeight="580.0" prefWidth="574.0">
+            <children>
+                <AnchorPane fx:id="home1" layoutX="1.0" prefHeight="580.0" prefWidth="574.0" style="-fx-background-color: #2f3136;">
+                    <children>
+                        <Label layoutX="31.0" layoutY="24.0" text="Add Friend" textFill="#a7a7a7">
+                            <font>
+                                <Font name="System Italic" size="24.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="back1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="528.0" layoutY="5.0" mnemonicParsing="false" onAction="#back1" prefHeight="18.0" prefWidth="34.0" style="-fx-background-color: rgb(201, 209, 221,0.6);" text="X" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Button>
+                        <JFXButton id="button" fx:id="Add" layoutX="341.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#sendInvitation" prefHeight="33.0" prefWidth="36.0" ripplerFill="WHITE" style="-fx-background-color: #565a60;" stylesheets="@../text.css" text="+" textFill="WHITE" />
+                        <Label layoutX="27.0" layoutY="162.0" text="Friend Requests" textFill="#a7a7a7">
+                            <font>
+                                <Font name="System Italic" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <HBox alignment="CENTER_LEFT" layoutX="70.0" layoutY="77.0" prefHeight="40.0" prefWidth="252.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #565a60;">
+                    <children>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#BEBFC1" iconName="USER" />
+                        <TextField id="user" fx:id="userToInvite" prefHeight="30.0" prefWidth="189.0" promptText="Add Friend" style="-fx-background-color: transparent;" stylesheets="@../text.css" HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </HBox>
+                <Separator layoutX="10.0" layoutY="136.0" prefHeight="13.0" prefWidth="559.0" />
+                <ScrollPane fx:id="clientListScroll1" hbarPolicy="NEVER" layoutX="87.0" layoutY="195.0" prefHeight="325.0" prefWidth="395.0" stylesheets="@../controler/PublicChat.css" vvalue="1.0">
+                    <content>
+                        <VBox fx:id="clientListBox1" prefHeight="318.0" prefWidth="391.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
